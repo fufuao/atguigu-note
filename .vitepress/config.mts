@@ -19,7 +19,7 @@ const langchainSidebar = [
   {
     text: '相关链接',
     items: [
-      // { text: '视频分 P 目录', link: '/langchain/README' },
+      { text: '视频分 P 目录', link: '/langchain/README' },
       { text: 'B 站在线观看', link: 'https://www.bilibili.com/video/BV1rv7A6oEeP' },
     ],
   },
@@ -40,7 +40,7 @@ const langgraphSidebar = [
   {
     text: '相关链接',
     items: [
-      // { text: '视频分 P 目录', link: '/langgraph/' },
+      { text: '视频分 P 目录', link: '/langgraph/README' },
       { text: 'B 站在线观看', link: 'https://www.bilibili.com/video/BV1z3NY66EY1' },
     ],
   },
@@ -71,7 +71,7 @@ export default defineConfig({
         text: 'LangChain',
         items: [
           { text: '课件目录', link: '/langchain/课件/01-LangChain概述/01-LangChain概述' },
-          { text: '视频分 P', link: '/langchain/' },
+          { text: '视频分 P', link: '/langchain/README' },
           { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1rv7A6oEeP' },
         ],
       },
@@ -79,7 +79,7 @@ export default defineConfig({
         text: 'LangGraph',
         items: [
           { text: '课件目录', link: '/langgraph/课件/00-环境配置' },
-          { text: '视频分 P', link: '/langgraph/' },
+          { text: '视频分 P', link: '/langgraph/README' },
           { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1z3NY66EY1' },
         ],
       },
