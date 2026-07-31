@@ -1,33 +1,48 @@
 # 尚硅谷 AI 课程笔记
 
-尚硅谷 LangChain / LangGraph 课程配套课件与代码整理
+尚硅谷 LangChain / LangGraph 课程配套课件与代码整理。支持 VitePress 静态站点 + GitHub Pages 在线阅读。
+
+## 在线站点
+
+部署后访问：https://xbsheng.github.io/atguigu-note/
+
+本地预览：
+
+```bash
+pnpm install
+pnpm docs:dev
+```
 
 ## 课程目录
 
-| 课程                      | 说明                                  | 在线视频                                                    | 详情                            |
-| ------------------------- | ------------------------------------- | ----------------------------------------------------------- | ------------------------------- |
+| 课程 | 说明 | 在线视频 | 详情 |
+|------|------|----------|------|
 | [LangChain](./langchain/) | LangChain 1.2 入门到 Agent / RAG 实战 | [BV1rv7A6oEeP](https://www.bilibili.com/video/BV1rv7A6oEeP) | [README](./langchain/README.md) |
-| [LangGraph](./langgraph/) | LangGraph 入门到智能体部署实战        | [BV1z3NY66EY1](https://www.bilibili.com/video/BV1z3NY66EY1) | [README](./langgraph/README.md) |
+| [LangGraph](./langgraph/) | LangGraph 入门到智能体部署实战 | [BV1z3NY66EY1](https://www.bilibili.com/video/BV1z3NY66EY1) | [README](./langgraph/README.md) |
 
 ## 仓库结构
 
 ```text
 atguigu-note/
-├── langchain/     # LangChain 课件 + 代码 + 分 P 目录
-└── langgraph/     # LangGraph 课件 + 代码 + 分 P 目录
+├── index.md              # 站点首页
+├── .vitepress/           # VitePress 配置
+├── .github/workflows/    # GitHub Pages 自动部署
+├── langchain/            # LangChain 课件 + 代码 + 分 P 目录
+└── langgraph/            # LangGraph 课件 + 代码 + 分 P 目录
 ```
 
-每个子目录下均包含：
-
-- `课件/`：Markdown 课件，可直接在线预览
-- `代码/`：Jupyter Notebook 实战代码
-- `README.md`：完整视频分 P 目录（点击即可跳转对应集数）
+站点直接复用各课程下的 `课件/` Markdown，无需复制文件。
 
 ## 学习建议
 
-1. 打开对应课程的 README，按分 P 在 B 站在线观看
-2. 对照 `课件/` 复习笔记
+1. 打开站点或对应课程 README，按分 P 在 B 站在线观看
+2. 对照课件复习笔记
 3. 打开 `代码/` 中的 Notebook 动手跟练
+
+## GitHub Pages 开启方式
+
+1. 仓库 Settings → Pages → Source 选择 **GitHub Actions**
+2. 推送到 `main` 后自动构建部署
 
 ## 版权说明
 
