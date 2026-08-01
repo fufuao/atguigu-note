@@ -1,10 +1,10 @@
 # 尚硅谷 AI 课程笔记
 
-尚硅谷 LangChain / LangGraph 课程配套课件与代码整理。支持 VitePress 静态站点 + GitHub Pages 在线阅读。
+尚硅谷 LangChain / LangGraph 课程配套课件与代码整理
 
 ## 在线站点
 
-部署后访问：https://xbsheng.github.io/atguigu-note/
+https://xbsheng.github.io/atguigu-note/
 
 本地预览：
 
@@ -15,10 +15,10 @@ pnpm docs:dev
 
 ## 课程目录
 
-| 课程 | 说明 | 在线视频 | 详情 |
-|------|------|----------|------|
+| 课程                      | 说明                                  | 在线视频                                                    | 详情                            |
+| ------------------------- | ------------------------------------- | ----------------------------------------------------------- | ------------------------------- |
 | [LangChain](./langchain/) | LangChain 1.2 入门到 Agent / RAG 实战 | [BV1rv7A6oEeP](https://www.bilibili.com/video/BV1rv7A6oEeP) | [README](./langchain/README.md) |
-| [LangGraph](./langgraph/) | LangGraph 入门到智能体部署实战 | [BV1z3NY66EY1](https://www.bilibili.com/video/BV1z3NY66EY1) | [README](./langgraph/README.md) |
+| [LangGraph](./langgraph/) | LangGraph 入门到智能体部署实战        | [BV1z3NY66EY1](https://www.bilibili.com/video/BV1z3NY66EY1) | [README](./langgraph/README.md) |
 
 ## 仓库结构
 
@@ -38,11 +38,6 @@ atguigu-note/
 1. 打开站点或对应课程 README，按分 P 在 B 站在线观看
 2. 对照课件复习笔记
 3. 打开 `代码/` 中的 Notebook 动手跟练
-
-## GitHub Pages 开启方式
-
-1. 仓库 Settings → Pages → Source 选择 **GitHub Actions**
-2. 推送到 `main` 后自动构建部署
 
 ## 版权说明
 
