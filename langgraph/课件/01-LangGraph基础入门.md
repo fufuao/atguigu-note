@@ -24,7 +24,7 @@ LangGraph 运行时底层基于自研的 Pregel 运行时，其核心思想借�
 
 对于大多数 Agent 项目，从 LangChain 的 create_agent 开始即可；需要复杂工作流编排、确定性步骤与 Agent 步骤混合、长时间运行或底层状态控制时，再引入 LangGraph。
 
-![ChatGPT Image 2026年6月25日 18_25_23](images/ChatGPT_18_25_23.png)
+![ChatGPT Image 2026年6月25日 18_25_23](assets/ChatGPT_18_25_23.png)
 
 ## 1.1. 构成图的基本要素
 
@@ -44,7 +44,7 @@ START --> node_1 --> node_2 --> END
 
 如下图所示
 
-![image-20260521155704139](images/image-20260521155704139.png)
+![image-20260521155704139](assets/image-20260521155704139.png)
 
 ## 1.2. 图运行过程
 
@@ -56,17 +56,17 @@ LangGraph 的图运行过程基于 Superstep（超步） 来组织和推进。Su
 
 1. 计划/路由阶段（Plan / Routing）：根据当前的 State（状态） 和 Edge（边） 的逻辑，确定本轮超步中应该被执行的节点。
 
-![image-20260521160436752](images/image-20260521160436752.png)
+![image-20260521160436752](assets/image-20260521160436752.png)
 
 2. 执行阶段（Execution）：运行本轮被选中的节点。如果本轮有多个节点同时被触发，它们会并行执行。每个节点都会基于本轮开始时的状态快照进行计算，并输出各自对状态的局部更新。在本阶段中，一个节点产生的更新不会立即被其他节点读取到。
 
-![image-20260521160523119](images/image-20260521160523119.png)
+![image-20260521160523119](assets/image-20260521160523119.png)
 
 3. 状态更新/提交阶段（Update / Commit）：当本轮所有节点都执行完成后，LangGraph 会将它们的输出统一合并到 State 中，生成新的状态快照。这个新状态会作为下一轮 Superstep 的输入。
 
-![image-20260521160659113](images/image-20260521160659113.png)
+![image-20260521160659113](assets/image-20260521160659113.png)
 
-完整的运行流程查看 [index.html](langgraph-runtime-viz\index.html) ，双击在浏览器打开即可。
+完整的运行流程查看 [index.html](langgraph-runtime-viz/index.html) ，双击在浏览器打开即可。
 
 其中和Checkpoint相关的部分，学习相关内容后再看。
 
@@ -346,7 +346,7 @@ display(png)
 
 运行结果如下所示
 
-![image-20260522103648868](images/image-20260522103648868.png)
+![image-20260522103648868](assets/image-20260522103648868.png)
 
 #### 2.5.2.2. 保存为图片文件
 
@@ -361,15 +361,15 @@ with open(png_filename, "wb") as f:
 
 运行结束后，代码文件同级目录下将会出现生成好的图片文件，如下图所示。
 
-![image-20260522103907281](images/image-20260522103907281.png)
+![image-20260522103907281](assets/image-20260522103907281.png)
 
 如果看不到文件，可以刷新上级目录
 
-![image-20260522104032434](images/image-20260522104032434.png)
+![image-20260522104032434](assets/image-20260522104032434.png)
 
 图片内容如下
 
-![first_demo_graph](images/first_demo_graph.png)
+![first_demo_graph](assets/first_demo_graph.png)
 
 #### 2.5.2.3. 快捷用法
 
@@ -383,7 +383,7 @@ display(graph)
 
 效果如下
 
-![image-20260527174858380](images/image-20260527174858380.png)
+![image-20260527174858380](assets/image-20260527174858380.png)
 
 # 3. 图的状态（State）管理
 

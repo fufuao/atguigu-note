@@ -326,7 +326,7 @@ venv 是 Python 官方自带的虚拟环境工具，不需要额外安装。
 python -m venv .venv
 ```
 
-**注意：**venv 不负责安装新的 Python 解释器，只能基于当前已经安装好的 Python 解释器创建虚拟环境。同时，venv 也不负责管理 CUDA、系统库等非 Python 依赖。
+**注意**：venv 不负责安装新的 Python 解释器，只能基于当前已经安装好的 Python 解释器创建虚拟环境。同时，venv 也不负责管理 CUDA、系统库等非 Python 依赖。
 
 三者对比：
 

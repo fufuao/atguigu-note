@@ -1790,7 +1790,7 @@ for chunk in graph.stream(
 
 `Pregel` 流即 `stream/astream` 的底层支持，上文 7 种 `stream_mode` 分别对应其中的 7 类流式数据。v3 并非 v1/v2 的封装——二者数据协议和内部管线独立，但共享同一组公开 API 入口和底层图运行时。
 
-![image-20260623180949275](images/image-20260623180949275.png)
+![image-20260623180949275](assets/image-20260623180949275.png)
 
 当前版本（**`LangGraph 1.1.2`**）仅支持 `astream_events` 的 **`v1/v2`**，默认版本为 **`v2`**。
 
@@ -2223,7 +2223,7 @@ display(
 LangGraph 真有意思。
 ```
 
-![image-20260625084145735](images/image-20260625084145735.png)
+![image-20260625084145735](assets/image-20260625084145735.png)
 
 **注意：**
 
@@ -2350,7 +2350,7 @@ display(
 LangGraph 真有意思。
 ```
 
-![image-20260625085408914](images/image-20260625085408914.png)
+![image-20260625085408914](assets/image-20260625085408914.png)
 
 #### 12.1.2.2. 查看子图
 
@@ -2464,7 +2464,7 @@ display(
 LangGraph 真有意思。
 ```
 
-![image-20260625085620495](images/image-20260625085620495.png)
+![image-20260625085620495](assets/image-20260625085620495.png)
 
 #### 12.2.1.1. 在父图检查点快照中查看子图信息
 
@@ -3145,7 +3145,7 @@ print(cleaned_text)
 LangGraph 真有意思！
 ```
 
-![image-20260625094209973](images/image-20260625094209973.png)
+![image-20260625094209973](assets/image-20260625094209973.png)
 
 > **策略差异**：三种策略下中断机制行为一致，`Per-invocation` 和 `Per-thread` 均支持中断恢复，`Stateless` 不支持中断。
 
@@ -3308,7 +3308,7 @@ display(
 {'user_input': '我是谁？你是谁？', 'assistant_response': '你是用户，我是DeepSeek，一个由深度求索公司开发的AI助手。'}
 ```
 
-![image-20260625094339255](images/image-20260625094339255.png)
+![image-20260625094339255](assets/image-20260625094339255.png)
 
 第二次调用时子图 `messages` 被重置，无法获知第一次调用时传递的信息。**Per-invocation 模式无法在子图中进行多轮对话。**
 
@@ -3355,7 +3355,7 @@ display(
 {'user_input': '我是谁？你是谁？', 'assistant_response': '老王。小王。'}
 ```
 
-![image-20260625104256756](images/image-20260625104256756.png)
+![image-20260625104256756](assets/image-20260625104256756.png)
 
 历史消息被保留，上下文连续。**Per-thread 模式适用于子图多轮对话场景。**
 
@@ -3575,7 +3575,7 @@ display(
 {'user_inputs': ['再+1呢?', '再+10000呢?'], 'assistant_responses': ['25+1=26。', '10100']}
 ```
 
-![image-20260625094551009](images/image-20260625094551009.png)
+![image-20260625094551009](assets/image-20260625094551009.png)
 
 每次调用子图时 `messages` 状态都是独立的。**Per-invocation 适用于父图中多次调用同一子图的场景，调用间互不干扰。**
 
@@ -3784,7 +3784,7 @@ display(
 {'fruit': '香蕉', 'vegetable': '西兰花', 'fruit_introduction': '黄色弯月形水果，软糯香甜。', 'vegetable_introduction': '西兰花，绿色花球状蔬菜，营养丰富。'}
 ```
 
-![image-20260625113908367](images/image-20260625113908367.png)
+![image-20260625113908367](assets/image-20260625113908367.png)
 
 本例在同一个节点中多次调用不同子图，通过专有状态保证了**水果一定发给 `fruit_subgraph`**、**蔬菜一定发给 `vegetable_subgraph`**，一定程度上可以确保不同子图的检查点历史不相互干扰。
 
@@ -4001,7 +4001,7 @@ display(
 {'fruit': '香蕉', 'vegetable': '西兰花', 'fruit_introduction': '香蕉是软甜水果，富含钾，能缓解便秘。', 'vegetable_introduction': '一种绿色花状蔬菜，营养丰富。'}
 ```
 
-![image-20260625115935316](images/image-20260625115935316.png)
+![image-20260625115935316](assets/image-20260625115935316.png)
 
 每个子图有独立的父图节点，命名空间为各自的节点名，完全隔离。**这是 Per-thread 模式下多次调用不同子图的推荐做法。**
 
@@ -4103,7 +4103,7 @@ display(
 {'input_texts': ['  Hello, LangGraph  ', '  Hello, LangChain '], 'output_texts': ['LangGraph 真有意思', '我喜欢 LangChain', 'Hello, LangGraph', 'Hello, LangChain']}
 ```
 
-![image-20260625121810977](images/image-20260625121810977.png)
+![image-20260625121810977](assets/image-20260625121810977.png)
 
 渲染的图结构中，子图节点内部没有展开子图拓扑——无状态模式的子图内部状态不可访问。
 
@@ -4116,7 +4116,7 @@ display(
 {'input_texts': ['  Hello, LangGraph  ', '  Hello, LangChain '], 'output_texts': ['LangGraph 真有意思', '我喜欢 LangChain', 'LangGraph 真有意思', 'Hello, LangGraph', '我喜欢 LangChain', 'Hello, LangChain']}
 ```
 
-![image-20260625122230644](images/image-20260625122230644.png)
+![image-20260625122230644](assets/image-20260625122230644.png)
 
 Per-thread 模式下第二次调用结果出现了重复（子图的历史 `clean_texts` 被累积），拓扑结构中也展开了子图。**Stateless 不会累积历史，每次调用都是干净的。**
 
@@ -4274,7 +4274,7 @@ display(
 )
 ```
 
-![image-20260625143710651](images/image-20260625143710651.png)
+![image-20260625143710651](assets/image-20260625143710651.png)
 
 **流数据命名空间规则**：
 
@@ -4412,7 +4412,7 @@ display(
 
 实际测试可以看到模型返回的消息是 **逐`token`** 返回的。
 
-![image-20260625143740875](images/image-20260625143740875.png)
+![image-20260625143740875](assets/image-20260625143740875.png)
 
 ## 12.4. 子图动态路由
 
@@ -4675,7 +4675,7 @@ display(graph)
 }
 ```
 
-![image-20260625180419653](images/image-20260625180419653.png)
+![image-20260625180419653](assets/image-20260625180419653.png)
 
 ---
 
@@ -4807,7 +4807,7 @@ display(graph)
 }
 ```
 
-![image-20260625180443516](images/image-20260625180443516.png)
+![image-20260625180443516](assets/image-20260625180443516.png)
 
 ---
 
@@ -4996,7 +4996,7 @@ display(graph)
 （笑点解析：谐音梗，把“落汤猫”说成“落汤包”，而猫胖胖的确实有点像包子。）
 ```
 
-![image-20260625180521496](images/image-20260625180521496.png)
+![image-20260625180521496](assets/image-20260625180521496.png)
 
 ---
 
@@ -5203,7 +5203,7 @@ Markdown(state["final_report"])
 
 **运行结果如下**
 
-![image-20260625180543541](images/image-20260625180543541.png)
+![image-20260625180543541](assets/image-20260625180543541.png)
 
 ```markdown
 引言
@@ -5538,7 +5538,7 @@ display(graph)
 猫耸耸肩：“无所谓，反正我还有八条命去找下一份工作。”
 ```
 
-![image-20260625180812793](images/image-20260625180812793.png)
+![image-20260625180812793](assets/image-20260625180812793.png)
 
 ---
 
@@ -5662,5 +5662,5 @@ Name: get_weather
 请问还有其他需要帮忙的吗？😊
 ```
 
-![image-20260625180832289](images/image-20260625180832289.png)
+![image-20260625180832289](assets/image-20260625180832289.png)
 

@@ -105,7 +105,6 @@ export default defineConfig({
     '**/code/**',
     '**/.venv/**',
     '**/node_modules/**',
-    '**/05-LangGraph高级特性_backup.md',
     '**/langgraph-runtime-viz/**',
   ],
 

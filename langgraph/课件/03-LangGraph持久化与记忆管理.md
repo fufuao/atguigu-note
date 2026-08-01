@@ -595,7 +595,7 @@ durability="sync"
 你好！很高兴见到你，有什么我可以帮助你的吗？😊
 ```
 
-![image-20260609151649967](images/image-20260609151649967.png)
+![image-20260609151649967](assets/image-20260609151649967.png)
 
 ## 6.4. 查看历史检查点
 
@@ -711,7 +711,7 @@ print(history_checkpoints)
 
 2. 拓扑结构
 
-![image-20260609173103640](images/image-20260609173103640.png)
+![image-20260609173103640](assets/image-20260609173103640.png)
 
 3. 最终结果和检查点列表
 
@@ -1227,7 +1227,7 @@ print(latest_history_checkpoint)
 
 2. 拓扑结构
 
-   ![image-20260610112506158](images/image-20260610112506158.png)
+   ![image-20260610112506158](assets/image-20260610112506158.png)
 
 3. 运行结果及检查点信息
 
@@ -1414,7 +1414,7 @@ print(history_checkpoints)
 2026-06-11 18:28:31.021 | INFO     | __main__:node_output:51 - node_output 已执行
 ```
 
-![image-20260611183125275](images/image-20260611183125275.png)
+![image-20260611183125275](assets/image-20260611183125275.png)
 
 ```json
 ============================== -> 运行结果 <- ==============================
@@ -1869,7 +1869,7 @@ with PostgresSaver.from_conn_string(DB_URL) as checkpointer:
 
 **运行结果如下**
 
-![image-20260610161811425](images/image-20260610161811425.png)
+![image-20260610161811425](assets/image-20260610161811425.png)
 
 ```json
 2026-06-10 16:17:43.544 | INFO     | __main__:node_change_topic:45 - topic_idx: 0
@@ -2096,7 +2096,7 @@ print(res)
 
 **运行结果如下**
 
-![image-20260610163718414](images/image-20260610163718414.png)
+![image-20260610163718414](assets/image-20260610163718414.png)
 
 ```json
 2026-06-10 16:37:12.985 | INFO     | __main__:node_joke:2 - node_joke 已执行
@@ -2281,7 +2281,7 @@ with PostgresSaver.from_conn_string(DB_URL) as checkpointer:
 
 **运行结果如下**
 
-![image-20260610171127937](images/image-20260610171127937.png)
+![image-20260610171127937](assets/image-20260610171127937.png)
 
 ```json
 2026-06-12 14:32:42.019 | INFO     | __main__:node_change_topic:45 - topic_idx: 0
@@ -2727,7 +2727,7 @@ print(res)
 
 运行结果如下
 
-![image-20260611142714758](images/image-20260611142714758.png)
+![image-20260611142714758](assets/image-20260611142714758.png)
 
 ```json
 2026-06-11 14:26:48.353 | INFO     | __main__:router_node:31 - 路由节点已执行
@@ -3400,7 +3400,7 @@ with PostgresSaver.from_conn_string(DB_URL) as checkpointer, \
 
 **运行结果如下**
 
-![image-20260612184930979](images/image-20260612184930979.png)
+![image-20260612184930979](assets/image-20260612184930979.png)
 
 ```json
 2026-06-12 18:53:39.351 | INFO     | __main__:router:51 - 需要从长期记忆中查询用户偏好
@@ -3526,7 +3526,7 @@ logger.info("用户偏好已存在，不必查询")
 
 ## 7.3. 运行时上下文
 
-在某些场景下，我们希望在调用图时传入一些**仅对当次调用有效**的信息，比如当前登录用户、请求来源、调用方标识等。这些信息不适合放入图状态（图状态会被持久化并在同一会话中跨调用共享），而应该通过**运行时上下文（Runtime Context）**传递。
+在某些场景下，我们希望在调用图时传入一些**仅对当次调用有效**的信息，比如当前登录用户、请求来源、调用方标识等。这些信息不适合放入图状态（图状态会被持久化并在同一会话中跨调用共享），而应该通过**运行时上下文**（Runtime Context）传递。
 
 运行时上下文的特点是：
 
@@ -3649,7 +3649,7 @@ display(graph)
 
 **运行结果如下**
 
-![image-20260709174052171](images\image-20260709174052171.png)
+![image-20260709174052171](assets/image-20260709174052171.png)
 
 ```json
 2026-07-09 17:40:27.208 | INFO     | __main__:llm_node:39 - 当前用户: Alice, 会员等级: VIP
@@ -4187,7 +4187,7 @@ PostgreSQL 版本：PostgreSQL 16.x on x86_64-pc-linux-gnu, compiled by gcc ...
 
 > **Docker 用户请注意**：通过 **`docker run`** 的 **`-e`** 环境变量启动容器时，数据库和用户已经自动创建并配置好权限，**可以跳过本节**，直接阅读 **A.3.3节**。
 
-如果你是**手动安装的 **`PostgreSQL`**，启动时**不会**自动创建 **`langgraph_db`数据库和 **`langgraph_user`** 用户，需要手动创建。
+如果你是**手动安装**的，启动时**不会**自动创建 `langgraph_db` 数据库和 `langgraph_user` 用户，需要手动创建。
 
 #### A.3.2.1. 创建数据库
 
