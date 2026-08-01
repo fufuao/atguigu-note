@@ -100,7 +100,14 @@ export default defineConfig({
 
   // 直接复用仓库根目录下的现有课件
   srcDir: '.',
-  srcExclude: ['**/代码/**', '**/node_modules/**', '**/05-LangGraph高级特性_backup.md', '**/langgraph-runtime-viz/**'],
+  srcExclude: [
+    '**/代码/**',
+    '**/code/**',
+    '**/.venv/**',
+    '**/node_modules/**',
+    '**/05-LangGraph高级特性_backup.md',
+    '**/langgraph-runtime-viz/**',
+  ],
 
   ignoreDeadLinks: true,
 
