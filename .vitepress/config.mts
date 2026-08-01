@@ -51,6 +51,8 @@ export default defineConfig({
   description: '尚硅谷 LangChain / LangGraph 课程配套课件与代码整理',
   lang: 'zh-CN',
 
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+
   // GitHub Pages 项目站：https://xbsheng.github.io/atguigu-note/
   base: '/atguigu-note/',
 
