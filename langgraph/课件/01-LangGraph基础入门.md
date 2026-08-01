@@ -10,21 +10,21 @@ LangGraph 运行时底层基于自研的 Pregel 运行时，其核心思想借�
 
 **LangGraph** 是更底层的编排框架与 Agent Runtime，负责复杂工作流和有状态 Agent 的执行，提供持久化、流式输出、Durable Execution、Human-in-the-loop 等运行时能力。create_agent 底层基于 LangGraph` 实现。
 
-二者的定位对比如下： 
+二者的定位对比如下：
 
-| 对比维度 | LangChain      | LangGraph                    |
-| ---- | -------------- | ---------------------------- |
-| 定位   | Agent 高层开发框架   | 底层编排框架 & Agent Runtime       |
-| 核心入口 | `create_agent` | `StateGraph` / `@entrypoint` |
-| 适用场景 | 结构直接的 Agent 应用 | 复杂工作流、持久化状态、长时间运行、人工介入       |
-| 流程控制 | Agent 循环自动管理   | 精细控制节点、边、条件分支                |
-| 学习成本 | 较低             | 较高                           |
+| 对比维度 | LangChain             | LangGraph                                    |
+| -------- | --------------------- | -------------------------------------------- |
+| 定位     | Agent 高层开发框架    | 底层编排框架 & Agent Runtime                 |
+| 核心入口 | `create_agent`        | `StateGraph` / `@entrypoint`                 |
+| 适用场景 | 结构直接的 Agent 应用 | 复杂工作流、持久化状态、长时间运行、人工介入 |
+| 流程控制 | Agent 循环自动管理    | 精细控制节点、边、条件分支                   |
+| 学习成本 | 较低                  | 较高                                         |
 
 > `LangChain` 提供易于使用的 Agent 高层抽象，`LangGraph` 提供可靠、可持久化且可精细控制的底层执行能力。
 
 对于大多数 Agent 项目，从 LangChain 的 create_agent 开始即可；需要复杂工作流编排、确定性步骤与 Agent 步骤混合、长时间运行或底层状态控制时，再引入 LangGraph。
 
-![ChatGPT Image 2026年6月25日 18_25_23](images/ChatGPT Image 2026年6月25日 18_25_23.png)
+![ChatGPT Image 2026年6月25日 18_25_23](images/ChatGPT_18_25_23.png)
 
 ## 1.1. 构成图的基本要素
 
@@ -74,7 +74,7 @@ LangGraph 的图运行过程基于 Superstep（超步） 来组织和推进。Su
 
 LangGraph 提供了两种不同的 API 来构建运行图：`Graph API`（图式 API） 和 `Functional API`（函数式 API）。这两种 API 共享相同的底层运行时，可以在同一应用程序中协同使用，但它们针对不同的使用场景和开发偏好而设计。
 
-------
+---
 
 ### 1.3.1. Graph API
 
@@ -88,15 +88,15 @@ Graph API 采用声明式方式构建工作流。开发者需要显式定义 Sta
 
 典型场景包括：
 
-| 场景        | 说明                        |
-| --------- | ------------------------- |
-| 多节点复杂流程   | 流程中存在多个处理节点，需要清晰表达节点之间的关系 |
-| 条件分支较多    | 根据 State 中的不同字段决定后续执行路径   |
-| 并行执行与结果汇聚 | 多个节点并行运行，之后汇总结果           |
-| 多组件共享状态   | 多个节点都需要读写同一个全局 State      |
-| 需要图结构展示   | 便于调试、讲解、文档化和团队协作          |
+| 场景               | 说明                                               |
+| ------------------ | -------------------------------------------------- |
+| 多节点复杂流程     | 流程中存在多个处理节点，需要清晰表达节点之间的关系 |
+| 条件分支较多       | 根据 State 中的不同字段决定后续执行路径            |
+| 并行执行与结果汇聚 | 多个节点并行运行，之后汇总结果                     |
+| 多组件共享状态     | 多个节点都需要读写同一个全局 State                 |
+| 需要图结构展示     | 便于调试、讲解、文档化和团队协作                   |
 
-------
+---
 
 ### 1.3.2. Functional API
 
@@ -108,29 +108,29 @@ Functional API 采用命令式方式构建工作流，更接近普通 Python 函
 
 典型场景包括：
 
-| 场景      | 说明                        |
-| ------- | ------------------------- |
-| 现有代码改造  | 原本已有函数式或过程式代码，不希望重构成完整图结构 |
-| 线性流程    | 主要是 A → B → C 的顺序执行       |
-| 简单分支    | 只有少量 `if/else` 判断         |
-| 快速原型验证  | 希望减少样板代码，快速验证业务逻辑         |
-| 局部任务持久化 | 希望某些函数作为独立 task 被检查点记录    |
+| 场景           | 说明                                               |
+| -------------- | -------------------------------------------------- |
+| 现有代码改造   | 原本已有函数式或过程式代码，不希望重构成完整图结构 |
+| 线性流程       | 主要是 A → B → C 的顺序执行                        |
+| 简单分支       | 只有少量 `if/else` 判断                            |
+| 快速原型验证   | 希望减少样板代码，快速验证业务逻辑                 |
+| 局部任务持久化 | 希望某些函数作为独立 task 被检查点记录             |
 
-------
+---
 
 ### 1.3.3. 二者的核心区别
 
-| 对比项   | Graph API       | Functional API    |
-| ----- | --------------- | ----------------- |
-| 编程风格  | 声明式图结构          | 命令式函数流程           |
-| 核心抽象  | State、Node、Edge | entrypoint、task   |
-| 状态管理  | 显式定义全局 State    | 更多依赖函数参数和返回值      |
-| 流程表达  | 通过节点和边表达        | 通过普通 Python 控制流表达 |
-| 可视化能力 | 强，天然适合画图和调试     | 弱，更像普通代码流程        |
-| 适合场景  | 复杂工作流、多分支、多节点协作 | 简单流程、快速原型、已有代码改造  |
-| 学习成本  | 相对更高            | 相对更低              |
+| 对比项     | Graph API                      | Functional API                   |
+| ---------- | ------------------------------ | -------------------------------- |
+| 编程风格   | 声明式图结构                   | 命令式函数流程                   |
+| 核心抽象   | State、Node、Edge              | entrypoint、task                 |
+| 状态管理   | 显式定义全局 State             | 更多依赖函数参数和返回值         |
+| 流程表达   | 通过节点和边表达               | 通过普通 Python 控制流表达       |
+| 可视化能力 | 强，天然适合画图和调试         | 弱，更像普通代码流程             |
+| 适合场景   | 复杂工作流、多分支、多节点协作 | 简单流程、快速原型、已有代码改造 |
+| 学习成本   | 相对更高                       | 相对更低                         |
 
-------
+---
 
 ### 1.3.4. 选型建议
 
@@ -152,11 +152,11 @@ Functional API 采用命令式方式构建工作流，更接近普通 Python 函
 
 状态图的定义可以分为以下几个步骤：
 
-**1. 定义全局状态**  定义整个运行图共享的全局状态（实际上，除了全局状态，LangGraph还支持其它类型的状态，下文详述）
+**1. 定义全局状态** 定义整个运行图共享的全局状态（实际上，除了全局状态，LangGraph还支持其它类型的状态，下文详述）
 
-**2. 创建状态图**     创建 StateGraph实例，将状态和状态图绑定
+**2. 创建状态图** 创建 StateGraph实例，将状态和状态图绑定
 
-**3. 定义图结构**     定义节点和边并添加到状态图中
+**3. 定义图结构** 定义节点和边并添加到状态图中
 
 ### 2.1.1. 定义全局状态
 
@@ -433,7 +433,7 @@ print(graph.invoke({"cur_id": "start"}))
 输出
 
 ```json
-{'logs': ['node_1 运行完毕', 'node_2 运行完毕'], 'cur_id': 'start, node_1, node_2'}
+{ "logs": ["node_1 运行完毕", "node_2 运行完毕"], "cur_id": "start, node_1, node_2" }
 ```
 
 ### 3.1.2. dataclass
@@ -480,7 +480,7 @@ print(graph.invoke({"cur_id": "start"}))
 输出
 
 ```json
-{'logs': ['node_1 运行完毕', 'node_2 运行完毕'], 'cur_id': 'start, node_1, node_2'}
+{ "logs": ["node_1 运行完毕", "node_2 运行完毕"], "cur_id": "start, node_1, node_2" }
 ```
 
 ### 3.1.3. Pydantic
@@ -526,7 +526,7 @@ print(graph.invoke({"cur_id": "start"}))
 输出
 
 ```json
-{'logs': ['node_1 运行完毕', 'node_2 运行完毕'], 'cur_id': 'start, node_1, node_2'}
+{ "logs": ["node_1 运行完毕", "node_2 运行完毕"], "cur_id": "start, node_1, node_2" }
 ```
 
 ### 3.1.4. 校验行为
@@ -565,7 +565,7 @@ Pydantic对输入字段进行校验，不匹配时抛出`ValidationError`异常�
 
 #### 3.2.1. 什么是State Reducer
 
-State Reducer 是 LangGraph 中用于合并状态更新的核心机制。在 LangGraph 的 `StateGraph` 中，每个节点可以读取和写入共享状态，而 Reducer 定义了如何将多个节点对同一状态键的更新合并 
+State Reducer 是 LangGraph 中用于合并状态更新的核心机制。在 LangGraph 的 `StateGraph` 中，每个节点可以读取和写入共享状态，而 Reducer 定义了如何将多个节点对同一状态键的更新合并
 
 Reducer 的核心特征：
 
@@ -856,7 +856,6 @@ k: id, v: start
 - 对于节点没有返回的字段，LangGraph 会保留其原有状态值；
 
 - 对于节点返回的字段，LangGraph 会根据该字段是否配置了 `Reducer` 来决定如何合并更新值。
-  
   - 如果字段配置了 `Reducer`，则使用对应的 `Reducer` 函数将旧值和新值合并；
   - 如果字段没有配置 `Reducer`，则按照默认规则使用节点返回的新值覆盖原值。
 
@@ -1017,20 +1016,20 @@ print(result)
 1. 输入状态和输出状态通常应是全局状态的子集
    输入状态描述图对外需要接收的数据，输出状态描述图最终需要返回的数据。通常情况下，它们都应该是全局状态的一部分。
    如：
-   
+
    ```python
    class InputState(TypedDict):
        username: str
-   
+
    class OutputState(TypedDict):
        graph_output: str
-   
+
    class OverAllState(TypedDict):
        username: str
        nickname: str
        graph_output: str
    ```
-   
+
    其中，`InputState` 和 `OutputState` 的所有字段均存在于 `OverAllState` 中。
 
 2. 私有状态和全局状态应尽量避免字段重名
@@ -1041,7 +1040,7 @@ print(result)
    节点函数的第一个参数通常是当前节点可读取的状态。通过类型注解声明该参数，可以明确表达该节点需要读取哪些字段。
    同时，给节点函数声明返回状态类型，也可以帮助阅读者理解该节点会更新哪些字段。
    例如：
-   
+
    ```python
    def node_1(state: InputState) -> OverAllState:
        return {
@@ -1052,20 +1051,20 @@ print(result)
 4. 节点函数中不应该访问入参状态类型中不存在的字段
    节点实际接收到的状态会按照其入参类型进行裁剪。因此，如果节点入参声明为 `InputState`，就不应该在节点内部访问 `InputState` 中不存在的字段。
    例如：
-   
+
    ```python
    def node_1(state: InputState) -> OverAllState:
        return {
            "nickname": state["username"]
        }
    ```
-   
+
    如果在该函数中访问：
-   
+
    ```
    state["nickname"]
    ```
-   
+
    而 `nickname` 不属于 `InputState`，运行时就可能抛出 `KeyError`。
 
 5. 节点函数返回的字典应尽量和返回类型注解保持一致
@@ -1088,7 +1087,7 @@ print(result)
 
 2. 创建 `StateGraph` 时，会记录 `state_schema`、`input_schema` 和 `output_schema` 中的字段
    当创建状态图时：
-   
+
    ```
    builder = StateGraph(
        OverAllState,
@@ -1096,7 +1095,7 @@ print(result)
        output_schema=OutputState
    )
    ```
-   
+
    LangGraph 会解析这些 Schema，并将其中涉及的字段加入图的状态管理体系。
 
 3. 调用 `add_node()` 添加节点时，也可能记录节点入参声明的状态 Schema
@@ -1104,21 +1103,20 @@ print(result)
    如果这个输入状态类型之前没有被图记录过，LangGraph 也会通过 `_add_schema()` 将其加入图中。
    这也是私有状态能够生效的原因。
    例如：
-   
+
    ```python
    class PrivateState(TypedDict):
        greeting: str
-   
+
    def node_3(state: PrivateState) -> OutputState:
        return {
            "graph_output": state["greeting"]
        }
    ```
-   
+
    当 `node_3` 被添加到图中时，`PrivateState` 中的 `greeting` 字段会被记录到图中，从而成为图内部可以传递的状态字段。
 
 4. 总结
-   
    - 全局状态、输入状态、输出状态通常在创建 `StateGraph` 时被记录。
    - 私有状态通常在调用 `add_node()` 添加节点时，根据节点入参类型注解被记录。
    - 被记录后的状态字段，底层会成为图运行时可以读写的状态字段。
@@ -1127,11 +1125,11 @@ print(result)
 
 1. 调用图时，输入会按照 `input_schema` 进行约束
    当调用图时：
-   
+
    ```python
    graph.invoke({"username": "小黄"})
    ```
-   
+
    如果创建图时声明了 `input_schema`，那么外部输入会按照 `input_schema` 进行约束。
    如果没有声明 `input_schema`，则通常按照 `state_schema` 作为图的输入 Schema。
    因此，`input_schema` 的作用不是“只让第一个节点可见”，而是约束图的外部输入结构。
@@ -1140,21 +1138,21 @@ print(result)
 2. 节点接收到的状态会按照节点入参类型进行裁剪
    每个节点能读取哪些字段，主要取决于该节点第一个参数的类型注解。
    例如：
-   
+
    ```python
    def node_1(state: InputState) -> OverAllState:
        ...
    ```
-   
+
    此时，`node_1` 接收到的 `state` 会按照 `InputState` 进行裁剪。即使图的全局状态中还有其他字段，`node_1` 也不应该访问不属于 `InputState` 的字段。
    如果访问了入参状态中不存在的字段，例如：
-   
+
    ```python
    state["nickname"]
    ```
-   
+
    就可能抛出：
-   
+
    ```python
    KeyError
    ```
@@ -1162,14 +1160,14 @@ print(result)
 3. 节点返回的是状态更新，而不是完整状态
    节点函数不需要返回完整状态，只需要返回本节点想要更新的字段。
    例如：
-   
+
    ```python
    def node_1(state: InputState) -> OverAllState:
        return {
            "nickname": "Dear " + state["username"]
        }
    ```
-   
+
    这里虽然返回类型注解是 `OverAllState`，但函数实际只返回了 `nickname` 一个字段。这是允许的，因为 LangGraph 会把节点返回值视为对状态的部分更新。
 
 4. 节点返回值的应用主要由字段名称和图中已记录的状态字段决定
@@ -1182,20 +1180,20 @@ print(result)
    图运行完成后，最终返回给外部调用方的结果会按照 `output_schema` 进行裁剪。
    因此，`output_schema` 的作用不是“只让最后一个节点可见”，而是约束图最终对外暴露哪些字段。
    例如，图内部状态中可能同时存在：
-   
+
    ```
    username
    nickname
    greeting
    graph_output
    ```
-   
+
    但如果 `output_schema` 只包含：
-   
+
    ```
    graph_output
    ```
-   
+
    那么最终 `graph.invoke()` 的返回结果就只会包含 `graph_output`。
 
 ### 3.4.3. 案例
@@ -1254,7 +1252,7 @@ print(graph.invoke({"username":"小黄"}))
 输出如下
 
 ```json
-{'graph_output': 'Dear 小黄, 早上好~ 很高兴认识你！'}
+{ "graph_output": "Dear 小黄, 早上好~ 很高兴认识你！" }
 ```
 
 ### 3.4.4. 案例执行过程分析
@@ -1336,7 +1334,7 @@ class OutputState(TypedDict):
 虽然图内部运行过程中还存在 `username`、`nickname`、`greeting` 等字段，但最终结果只返回：
 
 ```json
-{'graph_output': 'Dear 小黄, 早上好~ 很高兴认识你！'}
+{ "graph_output": "Dear 小黄, 早上好~ 很高兴认识你！" }
 ```
 
 这是因为图创建时声明了：
@@ -1368,7 +1366,7 @@ class MessagesState(TypedDict):
 
 `add_messages` 的完全限定名（英文全称 `fully qualified name`）是：
 
- `langgraph.graph.message.add_messages`，正是上文 3.2.2.3.2 节介绍的内置 `Reducer` 函数。
+`langgraph.graph.message.add_messages`，正是上文 3.2.2.3.2 节介绍的内置 `Reducer` 函数。
 
 示例如下：
 
