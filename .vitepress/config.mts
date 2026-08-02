@@ -108,7 +108,11 @@ export default defineConfig({
     '**/langgraph-runtime-viz/**',
   ],
 
-  ignoreDeadLinks: true,
+  // 死链检查保持开启，仅忽略两类“刻意排除”导致的预期失效链接：
+  // 1. 指向 代码/ 目录的链接：源码目录在站点构建中被 srcExclude 排除，
+  //    这些链接用于 GitHub 仓库内导航（README 分章表格中的代码列）
+  // 2. langgraph-runtime-viz：独立 HTML 应用，未纳入站点构建
+  ignoreDeadLinks: [/代码|%E4%BB%A3%E7%A0%81/, /langgraph-runtime-viz/],
 
   cleanUrls: true,
 
