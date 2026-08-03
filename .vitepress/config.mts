@@ -1,4 +1,25 @@
 import { defineConfig } from 'vitepress'
+import type { HeadConfig } from 'vitepress'
+
+const site = 'https://xbsheng.github.io'
+const homeUrl = site + '/atguigu-note/'
+
+function jsonLd(schema: object): HeadConfig {
+  return ['script', { type: 'application/ld+json' }, JSON.stringify(schema)]
+}
+
+function breadcrumb(pageUrl: string, crumbs: { name: string; url?: string }[]): HeadConfig {
+  return jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      ...(c.url ? { item: c.url } : {}),
+    })),
+  })
+}
 
 const langchainSidebar = [
   {
@@ -82,6 +103,14 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/atguigu-note/favicon.ico' }],
+    jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: '尚硅谷 AI 课程笔记',
+      url: homeUrl,
+      inLanguage: 'zh-CN',
+      description: '尚硅谷 Python / LangChain / LangGraph 课程配套课件与代码整理',
+    }),
     [
       'script',
       {},
@@ -97,6 +126,29 @@ export default defineConfig({
 
   // GitHub Pages 项目站：https://xbsheng.github.io/atguigu-note/
   base: '/atguigu-note/',
+
+  transformHead(ctx) {
+    const isHome = ctx.pageData.relativePath === 'index.md'
+    const rel = ctx.pageData.relativePath.replace(/\.md$/, '')
+    const pageUrl = isHome ? homeUrl : site + '/atguigu-note/' + rel
+    const head: HeadConfig[] = [['link', { rel: 'canonical', href: pageUrl }]]
+    const course = rel.split('/')[0]
+    const labels: Record<string, string> = {
+      python: 'Python',
+      langchain: 'LangChain',
+      langgraph: 'LangGraph',
+    }
+    if (labels[course]) {
+      head.push(
+        breadcrumb(pageUrl, [
+          { name: '尚硅谷 AI 课程笔记', url: homeUrl },
+          { name: labels[course], url: homeUrl + course + '/' },
+          { name: ctx.pageData.title },
+        ]),
+      )
+    }
+    return head
+  },
 
   // 直接复用仓库根目录下的现有课件
   srcDir: '.',
