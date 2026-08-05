@@ -40,6 +40,7 @@ const langchainSidebar = [
   {
     text: '相关链接',
     items: [
+      { text: 'Notebook 在线阅读', link: '/langchain/notebooks' },
       { text: '视频分 P 目录', link: '/langchain/README' },
       { text: 'B 站在线观看', link: 'https://www.bilibili.com/video/BV1rv7A6oEeP' },
     ],
@@ -61,6 +62,7 @@ const langgraphSidebar = [
   {
     text: '相关链接',
     items: [
+      { text: 'Notebook 在线阅读', link: '/langgraph/notebooks' },
       { text: '视频分 P 目录', link: '/langgraph/README' },
       { text: 'B 站在线观看', link: 'https://www.bilibili.com/video/BV1z3NY66EY1' },
     ],
@@ -152,13 +154,7 @@ export default defineConfig({
 
   // 直接复用仓库根目录下的现有课件
   srcDir: '.',
-  srcExclude: [
-    '**/代码/**',
-    '**/code/**',
-    '**/.venv/**',
-    '**/node_modules/**',
-    '**/langgraph-runtime-viz/**',
-  ],
+  srcExclude: ['**/代码/**', '**/code/**', '**/.venv/**', '**/node_modules/**', '**/langgraph-runtime-viz/**'],
 
   // 死链检查保持开启，仅忽略两类“刻意排除”导致的预期失效链接：
   // 1. 指向 代码/ 目录的链接：源码目录在站点构建中被 srcExclude 排除，
@@ -185,6 +181,7 @@ export default defineConfig({
         text: 'LangChain',
         items: [
           { text: '课件目录', link: '/langchain/课件/01-LangChain概述' },
+          { text: 'Notebook', link: '/langchain/notebooks' },
           { text: '视频分 P', link: '/langchain/README' },
           { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1rv7A6oEeP' },
         ],
@@ -193,6 +190,7 @@ export default defineConfig({
         text: 'LangGraph',
         items: [
           { text: '课件目录', link: '/langgraph/课件/00-环境配置' },
+          { text: 'Notebook', link: '/langgraph/notebooks' },
           { text: '视频分 P', link: '/langgraph/README' },
           { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1z3NY66EY1' },
         ],
