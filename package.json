@@ -5,7 +5,7 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
+    "docs:build": "vitepress build && node scripts/gen-sitemap.mjs",
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
