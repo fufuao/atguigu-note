@@ -1,5 +1,10 @@
 # 尚硅谷 AI 课程笔记
 
+[![Deploy](https://github.com/xbsheng/atguigu-note/actions/workflows/deploy.yml/badge.svg)](https://github.com/xbsheng/atguigu-note/actions/workflows/deploy.yml)
+[![Test](https://github.com/xbsheng/atguigu-note/actions/workflows/test.yml/badge.svg)](https://github.com/xbsheng/atguigu-note/actions/workflows/test.yml)
+[![GitHub Pages](https://img.shields.io/website?label=%E5%9C%A8%E7%BA%BF%E7%AB%99%E7%82%B9&url=https%3A%2F%2Fxbsheng.github.io%2Fatguigu-note%2F)](https://xbsheng.github.io/atguigu-note/)
+[![Stars](https://img.shields.io/github/stars/xbsheng/atguigu-note)](https://github.com/xbsheng/atguigu-note)
+
 尚硅谷 Python / LangChain / LangGraph 课程配套课件与代码整理
 
 ## 在线站点
