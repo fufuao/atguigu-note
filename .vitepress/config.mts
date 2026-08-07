@@ -69,6 +69,30 @@ const langgraphSidebar = [
   },
 ]
 
+const vibeSidebar = [
+  {
+    text: 'AI Coding 课件',
+    items: [
+      { text: '00 · 课程介绍与环境准备', link: '/vibe_coding/课件/00-课程介绍与环境准备' },
+      { text: '01 · AI 编程基础理论', link: '/vibe_coding/课件/01-AI编程基础理论' },
+      { text: '02 · AI 编程工具生态', link: '/vibe_coding/课件/02-AI编程工具生态' },
+      { text: '03 · Claude Code 深度使用', link: '/vibe_coding/课件/03-ClaudeCode深度使用与进阶技巧' },
+      { text: '04 · AI 技能系统（Skills）', link: '/vibe_coding/课件/04-AI技能系统Skills' },
+      { text: '05 · 完整项目案例实操', link: '/vibe_coding/课件/05-完整项目案例实操' },
+      { text: '06 · 项目实战（独立完成）', link: '/vibe_coding/课件/06-项目实战独立完成' },
+      { text: '07 · Codex Desktop', link: '/vibe_coding/课件/07-CodexDesktop' },
+      { text: '08 · 附录', link: '/vibe_coding/课件/08-附录' },
+    ],
+  },
+  {
+    text: '相关链接',
+    items: [
+      { text: '视频分 P 目录', link: '/vibe_coding/README' },
+      { text: 'B 站在线观看', link: 'https://www.bilibili.com/video/BV1RPET6tEp2' },
+    ],
+  },
+]
+
 const pythonSidebar = [
   {
     text: 'Python 课件',
@@ -139,6 +163,7 @@ export default defineConfig({
       python: 'Python',
       langchain: 'LangChain',
       langgraph: 'LangGraph',
+      vibe_coding: 'AI Coding',
     }
     if (labels[course]) {
       head.push(
@@ -195,12 +220,21 @@ export default defineConfig({
           { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1z3NY66EY1' },
         ],
       },
+      {
+        text: 'AI Coding',
+        items: [
+          { text: '课件目录', link: '/vibe_coding/课件/00-课程介绍与环境准备' },
+          { text: '视频分 P', link: '/vibe_coding/README' },
+          { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1RPET6tEp2' },
+        ],
+      },
     ],
 
     sidebar: {
       '/python/': pythonSidebar,
       '/langchain/': langchainSidebar,
       '/langgraph/': langgraphSidebar,
+      '/vibe_coding/': vibeSidebar,
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/xbsheng/atguigu-note' }],

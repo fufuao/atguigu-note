@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: 尚硅谷 AI 课程笔记
-  text: Python / LangChain / LangGraph
+  text: Python / LangChain / LangGraph / AI Coding
   tagline: 课件在线阅读 · B 站视频直达 · 无需网盘会员
   actions:
     - theme: brand
@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: 开始学习 LangGraph
       link: /langgraph/课件/00-环境配置
+    - theme: alt
+      text: 开始学习 AI Coding
+      link: /vibe_coding/课件/00-课程介绍与环境准备
 
 features:
   - title: Python 零基础
@@ -28,5 +31,9 @@ features:
   - title: LangGraph
     details: 图编排、控制流、持久化、HITL 中断、工具节点、流式与子图，从入门到部署。
     link: /langgraph/课件/00-环境配置
+    linkText: 进入课件
+  - title: AI Coding（Vibe Coding）
+    details: 从零开始用自然语言指挥 AI 构建真实项目，基于 Claude Code 深度实践，覆盖模型配置、Skills、项目实战与 Codex。
+    link: /vibe_coding/课件/00-课程介绍与环境准备
     linkText: 进入课件
 ---
