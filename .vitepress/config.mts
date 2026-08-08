@@ -192,6 +192,8 @@ export default defineConfig({
   themeConfig: {
     siteTitle: '尚硅谷 AI 笔记',
 
+    logo: '/atguigu-logo.png',
+
     nav: [
       { text: '首页', link: '/' },
       {
