@@ -106,6 +106,7 @@ def event_message(name, ev, stats=""):
     """返回 (标题, 内容)。标题精简为【动作 仓库名】，详情和统计放内容。"""
     repo = ev.get("repository", {})
     full = repo.get("full_name", "?")
+    repo_name = repo.get("name", full.split("/")[-1])  # 标题只显示仓库名，不带 owner
     url = repo.get("html_url", "")
     sender = ev.get("sender", {}).get("login", "?")
     if name in ("star", "watch"):  # watch(started) 即有人 star，见 notify.yml 注释
@@ -128,7 +129,7 @@ def event_message(name, ev, stats=""):
     if stats:
         lines.append(f"当前 {stats}")
     lines.append(url)
-    return f"{head} {full}", "\n".join(lines)
+    return f"{head} {repo_name}", "\n".join(lines)
 
 
 def event_notify():
@@ -222,7 +223,7 @@ if __name__ == "__main__":
                 },
             },
             "⭐ 123 · 🍴 4",
-        ) == ("⭐ star me/r", "alice star 了 me/r\n当前 ⭐ 123 · 🍴 4\nhttps://github.com/me/r")
+        ) == ("⭐ star r", "alice star 了 me/r\n当前 ⭐ 123 · 🍴 4\nhttps://github.com/me/r")
         t, c = event_message(
             "issues",
             {
@@ -236,7 +237,7 @@ if __name__ == "__main__":
                 },
             },
         )
-        assert t == "📝 opened me/r" and "Issue #3: bug" in c
+        assert t == "📝 opened r" and "Issue #3: bug" in c
         t, c = event_message(
             "pull_request",
             {
@@ -251,7 +252,7 @@ if __name__ == "__main__":
                 },
             },
         )
-        assert t == "🔀 merged me/r" and "PR #7: add pr" in c
+        assert t == "🔀 merged r" and "PR #7: add pr" in c
         t, c = event_message(
             "watch",
             {
@@ -260,7 +261,7 @@ if __name__ == "__main__":
                 "repository": {"full_name": "me/r", "html_url": "https://github.com/me/r"},
             },
         )
-        assert t == "⭐ star me/r" and "eve star 了 me/r" in c
+        assert t == "⭐ star r" and "eve star 了 me/r" in c
         print("selftest ok")
     elif "--dry-run" in sys.argv:
         dry_run()
