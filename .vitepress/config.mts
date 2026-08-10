@@ -158,6 +158,11 @@ export default defineConfig({
     const rel = ctx.pageData.relativePath.replace(/\.md$/, '')
     const pageUrl = isHome ? homeUrl : site + '/atguigu-note/' + rel
     const head: HeadConfig[] = [['link', { rel: 'canonical', href: pageUrl }]]
+
+    // console commit hash
+    const sha = (process.env.GITHUB_SHA || 'dev').slice(0, 7) // 本地构建显示 dev
+    head.push(['script', {}, `console.log('[atguigu-note] commit:', '${sha}')`])
+
     const course = rel.split('/')[0]
     const labels: Record<string, string> = {
       python: 'Python',
