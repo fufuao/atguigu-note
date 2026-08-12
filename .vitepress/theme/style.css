@@ -1,0 +1,13 @@
+/* 修复移动端"本页目录"弹层滑动穿透
+ *
+ * VitePress 默认主题 VPLocalNavOutlineDropdown.vue 打开弹层时未锁定 body 滚动,
+ * 弹层内部滚动到边界后继续滑动会把滚动传递给背景页面(滚动链/滑动穿透)。
+ * 对比:移动端侧边栏 VPSidebar.vue 用 useScrollLock + overscroll-behavior: contain 做了处理,
+ * 本页目录弹层遗漏了。
+ * 该问题在 VitePress 1.6.x 及最新 main 分支(2.x)中均存在。
+ *
+ * 注:overscroll-behavior 需要 Safari >= 16(2022-09),更老版本浏览器上仍可能穿透。
+ */
+.VPLocalNavOutlineDropdown .items {
+  overscroll-behavior: contain;
+}
