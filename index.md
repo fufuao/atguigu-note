@@ -37,3 +37,13 @@ features:
     link: /vibe_coding/课件/00-课程介绍与环境准备
     linkText: 进入课件
 ---
+
+## 已经会 Java / JS / Go？试试 PyBridge
+
+**[PyBridge](https://pybridge.quarkcode.cn)** — 写给多语言开发者的 Python 迁移速查卡：
+
+- **概念映射词典**：52 条「你的 X 是 Python 的 Y」（HashMap → dict、goroutine → asyncio、interface → Protocol……），可搜索、按来源语言过滤
+- **对照式课程**：Java / JavaScript / Go 三条路径共 15 课，左栏你的写法、右栏 Python 写法
+- **浏览器内直接运行**：无需安装任何环境，讲完立刻跑
+
+学完上面的 Python 入门课，用 PyBridge 把已有编程经验「翻译」成地道的 Python，效率翻倍。

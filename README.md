@@ -27,6 +27,10 @@ pnpm docs:dev
 | [LangGraph](./langgraph/) | LangGraph 入门到智能体部署实战                | [BV1z3NY66EY1](https://www.bilibili.com/video/BV1z3NY66EY1) | [README](./langgraph/README.md) |
 | [AI Coding](./vibe_coding/) | Vibe Coding 零基础实战（Claude Code / Skills / Codex） | [BV1RPET6tEp2](https://www.bilibili.com/video/BV1RPET6tEp2) | [README](./vibe_coding/README.md) |
 
+## 推荐项目
+
+**[PyBridge](https://pybridge.quarkcode.cn)** · 写给 Java / JS / Go 开发者的 Python 速查卡 —— 52 条概念映射词典（HashMap → dict、goroutine → asyncio）、三条来源语言的对照式课程、浏览器内直接运行 Python，无需安装环境。有其他语言基础的话，配合本站 Python 课程食用效率翻倍。（[GitHub 仓库](https://github.com/xbsheng/pybridge)）
+
 ## 仓库结构
 
 ```text

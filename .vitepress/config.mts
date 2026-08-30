@@ -131,6 +131,7 @@ export default defineConfig({
           { text: 'B 站视频', link: 'https://www.bilibili.com/video/BV1RPET6tEp2' },
         ],
       },
+      { text: '速通 Python', link: 'https://pybridge.quarkcode.cn' },
     ],
 
     sidebar: {
