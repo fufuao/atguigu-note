@@ -12,3 +12,10 @@ speed_of_light = 2.998E+8  # 2.998乘以10的8次方。
 
 one_ml = 1e-3  # 1乘以10的-3次方。
 one_mg = 1E-3  # 1乘以10的-3次方。
+
+# 练习
+print(weight)
+print(out_temp)
+print(price)
+print(speed_of_sound)
+print(world_population)

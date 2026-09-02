@@ -10,10 +10,10 @@
 # 使用 \\ 输出 \
 # print('D:\\nice')
 
-# 使用 \b 删除前一个字符
+# 使用 \b 删除前一个字符 【hello】
 # print('helloo\b')
 
-# 使用 \r 使光标回到本行开头，覆盖输出
+# 使用 \r 使光标回到本行开头，覆盖输出 【68%】
 # print('67%\r68%')
 
 # 使用 \t 表示水平制表符（让光标跳转到下一个制表位）
@@ -24,7 +24,14 @@
 # print('我是\t中文')
 
 print('12341234123412341234')
-print('姓名\t性别\t年龄')
+print('姓名\t性别\t\t年龄')
 print('张三\t男\t\t18')
 print('李四\t女\t\t25')
 print('王五\t男\t\t32')
+
+# 练习
+# .expandtabs(4) 表示制表位是4
+# 占位，一个汉字占两个英文的位置
+print('aa\taa'.expandtabs(4))
+print('aaa\ta'.expandtabs(4))
+print('a\taaa'.expandtabs(4))

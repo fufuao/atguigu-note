@@ -64,3 +64,6 @@ msg4 = '中国'
 msg5 = 'abc'
 msg6 = 'abcdef'
 print(msg1 <= msg5)
+
+# 练习
+# == > < >= <= 两边的数据类型必须一致

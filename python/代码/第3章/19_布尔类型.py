@@ -15,7 +15,7 @@ d = 7 < 2
 
 # print(4 + True)
 # print(8 - False)
-
+#
 # print(True + True)
 # print(True - False)
 
@@ -26,14 +26,14 @@ d = 7 < 2
 # print(bool(1))
 # print(bool(0))
 
-# Python中除0以外的任何数，转为布尔值后都为True
+# Python中除【0】以外的任何数，转为布尔值后都为True
 # print(bool(300))
 # print(bool(25.6))
 # print(bool(1.8e3))
 # print(bool(12_000))
 # print(bool(-10))
 
-# Python中除空字符串以外的任何字符串，转为布尔值都是True
+# Python中除【空字符串】以外的任何字符串，转为布尔值都是True
 print(bool('hello'))
 print(bool('0'))
 print(bool('18.5'))

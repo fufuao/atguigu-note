@@ -1,3 +1,4 @@
+#coding=utf-8
 """在该文件中，我主要学习了注释相关的内容"""
 
 # name是张三的名字
@@ -20,3 +21,9 @@ ADULT_AGE = 18
 MONTHS_IN_YEAR = 12
 MAX_USERS = 1200
 print(ADULT_AGE,MONTHS_IN_YEAR,MAX_USERS)
+
+
+# 练习
+# 字符编码【写在文档的第一行】
+# utf-8 【万国码】
+# 文档字符串必须开头且三个双引号

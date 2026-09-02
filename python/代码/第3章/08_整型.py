@@ -10,4 +10,8 @@ graduates = 12_000_000
 print(salary, house_price, graduates)
 
 # Python中整数的上限值，取决于执行代码的计算机的内存和处理能力。
+# 指数运算语法 9的9999次方
 a = 9 ** 9999
+
+# 练习
+print(a)

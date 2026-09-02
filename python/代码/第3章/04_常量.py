@@ -5,3 +5,7 @@ PASSING_SCORE = 60
 MAX_USERS = 1300
 
 print(ADULT_AGE, MONTHS_IN_YEAR, MAX_USERS, PASSING_SCORE)
+
+# 练习
+# 一旦被赋值，就不希望去修改的量
+

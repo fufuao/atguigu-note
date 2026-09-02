@@ -6,3 +6,8 @@ weight = 58
 print('张三的体重是', weight)
 print('对于', weight, '这个体重，张三不是很满意')
 print('张三决定开始减肥，希望体重比', weight, '还要小')
+
+# 练习
+print('张三的体重是',99)
+bianliang = 99
+print('啊三的体重是', bianliang)
