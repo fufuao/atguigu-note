@@ -1,4 +1,4 @@
-# 定义函数
+ # 定义函数
 def welcome():
     print('欢迎来到尚硅谷课堂！')
     print('尚硅谷，让天下没有难学的技术！')
@@ -7,3 +7,6 @@ def welcome():
 welcome()
 welcome()
 welcome()
+
+# 练习
+# def 定义函数用的【完整的是define】
