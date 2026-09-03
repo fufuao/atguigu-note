@@ -1,6 +1,7 @@
 print('🏆欢迎来到：答题闯关挑战赛（输入q可随时退出）\n')
 
 # 题目与答案
+# 定义两个变量 v
 ques1, ans1 = 'Python中用于输出的函数是？', 'print'
 ques2, ans2 = 'Python中用于表示逻辑“并且”的关键字是？', 'and'
 ques3, ans3 = 'Python属于编译型还是解释型？', '解释型'
