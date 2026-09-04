@@ -13,3 +13,5 @@ print(list3, type(list3))
 print(list4, type(list4))
 print(list5, type(list5))
 print(list6, type(list6))
+
+# 数据容器 每一个容器就是一个元素 可以存储多个元素

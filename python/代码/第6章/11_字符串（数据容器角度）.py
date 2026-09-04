@@ -1,4 +1,4 @@
-# 字符串的下标
+ # 字符串的下标
 # msg = 'welcome to atguigu'
 # print(msg[3])
 # print(msg[-1])

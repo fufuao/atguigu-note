@@ -32,3 +32,6 @@ str1 = 'hello'
 str2 = str1 * 6
 print(str2)
 
+# 练习
+# 同类型的序列才可以相加
+
