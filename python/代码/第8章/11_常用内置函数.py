@@ -1,6 +1,8 @@
 # 一、输入与输出
 # print() ===> 输出指定内容
 # 完整参数：print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+# *objects：可以传很多个打印的对象
+
 # 参数详解：
 #   1.objects：要输出的内容
 #   2.sep：分隔符
@@ -8,7 +10,7 @@
 #   4.file：输出位置
 #   5.flush：是否立即刷新
 
-# f = open('a.txt', 'w', encoding='utf-8')
+# f = open('a.txt', 'w', encoding='utf-8') # 把文件写入到那个位置
 # print(10, 20, 30, 40, sep='-', end='!', file=f)
 
 import time

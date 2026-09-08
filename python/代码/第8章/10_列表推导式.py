@@ -16,7 +16,7 @@
 #     result.append(n * 2)
 # print(result)
 
-# 方式三：用列表推导式
+# 方式三：用列表推导式 【用的最多！】
 # nums = [10, 20, 30, 40]
 # result = [n * 2 for n in nums]
 # print(result)
@@ -26,13 +26,13 @@
 # result = [n * 2 for n in nums if n > 20]
 # print(result)
 
-# 字典推导式
+# 字典推导式 【用的不是特别多】
 # names = ['张三', '李四', '王五']
 # scores = [60, 70, 80]
 # result = {names[i]: scores[i] for i in range(len(names))}
 # print(result)
 
-# 集合推导式
+# 集合推导式 【用的不是特别多】
 # names = ['张三', '李四', '王五']
 # result = {n + '！' for n in names}
 # print(result)

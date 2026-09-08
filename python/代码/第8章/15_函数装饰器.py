@@ -2,13 +2,14 @@
 # 1.装饰器是一种【可调用对象】（通常是函数），它能接收一个函数作为参数，并且会返回一个新函数。
 # 2.装饰器可以在不修改原函数代码的前提下，增强或改变原函数的功能。
 
-# 实际应用：在不改变原函数的前提下，给函数统一加上：日志、计时、校验、缓存 等功能
+# 实际应用：【在不改变原函数的前提下】 ，给函数统一加上：日志、计时、校验、缓存 等功能
 
 # 关键点：
 # 1.接收被装饰的函数、同时返回新函数（wrapper）
 # 2.装饰器“吐出来”的是 wrapper 函数，以后别人调用的也是 wrapper 函数。
 # 3.为了保证参数的兼容性，wrapper 函数要通过 *args 和 **kwargs 接收参数。
 # 4.wrapper 函数中主要做的是：调用原函数（被装饰的函数）、执行其它逻辑，但要记得将原函数的返回值 return 出去。
+# *args打包所有的位置参数【会打包成元组（10，20，30）】，**kwargs打包所有的关键字参数
 
 # def say_hello(func):
 #     def wrapper(*args, **kwargs):
@@ -44,13 +45,13 @@
 #     return outer
 #
 #
-# @say_hello('加法')
+# @say_hello('加法') # 【装饰糖】
 # def add(x, y, z):
 #     res = x + y + z
 #     print(f'{x}和{y}和{z}相加的结果是：{res}')
 #     return res
 #
-# @say_hello('减法')
+# @say_hello('减法')# 【装饰糖】
 # def sub(x, y):
 #     res = x - y
 #     print(f'{x}和{y}相减的结果是：{res}')
@@ -80,6 +81,7 @@ def test2(func):
         return res
     return wrapper
 
+# 多个装饰器的调用 谁离得近就先执行谁
 @test1
 @test2
 def add(x, y):

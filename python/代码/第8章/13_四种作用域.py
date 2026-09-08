@@ -15,7 +15,7 @@ def test(b):
         print('inner中打印的c是', c)
         print('########', a)
     inner()
-    print('***************', c)
+    print('**  *************', c)
 
 print('全局打印的a是', a)
 test(66)

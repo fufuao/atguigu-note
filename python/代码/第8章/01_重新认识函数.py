@@ -14,7 +14,7 @@
 # 2.函数可以动态添加属性
 # def welcome():
 #     print('你好啊')
-# welcome.desc = '这是一个打招呼的函数'
+# welcome.desc   = '这是一个打招呼的函数'
 # welcome.version = 1.0
 # print(welcome.desc)
 # print(welcome.version)
@@ -66,7 +66,7 @@
 #
 # caller(welcome)
 
-# 6.函数也可以作为返回值
+# 6.函数也可以作为返回值 【很有意思】
 def welcome():
     print('你好啊')
     def show_msg(msg):

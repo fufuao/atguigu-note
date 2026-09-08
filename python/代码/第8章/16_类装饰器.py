@@ -1,5 +1,5 @@
 # 类装饰器：
-# 1.包含 __call__ 方法的类，就是类装饰器。
+# 1.【包含】 __call__ 方法的类，就是类装饰器。
 # 2.像调用函数一样，去调用类装饰器的实例对象，就会触发 __call__ 方法的调用。
 # 3.__call__ 方法通常接收一个函数作为参数，并且会返回一个新函数。
 
@@ -49,6 +49,7 @@
 
 
 # 多个类装饰器的使用
+# self, func 得接收一个函数
 class Test1:
     def __call__(self, func):
         def wrapper(*args, **kwargs):
@@ -63,6 +64,7 @@ class Test2:
             return func(*args, **kwargs)
         return wrapper
 
+#【离得近就先执行】
 @Test1()
 @Test2()
 def add(x, y):
