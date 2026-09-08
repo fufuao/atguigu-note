@@ -12,6 +12,7 @@
 # except Exception as e:
 #     print(f'程序异常：{e}')
 
+# 手动抛出异常 raise ➕ 异常名
 # raise NameError('ertghfgfggvb')
 raise KeyboardInterrupt('ertghfgfggvb')
 

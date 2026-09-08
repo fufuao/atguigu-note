@@ -1,3 +1,5 @@
+# 【异常处理机制，只能处理异常不能处理错误！】
+
 # 错误：代码本身有语法错误，解释器无法执行代码。———— 无法通过异常处理机制解决
 # age = 18
 # if age >= 18
@@ -6,15 +8,15 @@
 # 异常：代码在语法上没问题，但执行过程中出现了问题。———— 可以通过异常处理机制解决
 # 一些开发中常见的异常：
 
-# 1.ZeroDivisionError：当除数为 0 时触发。
+# 1.ZeroDivisionError：当除数为 0 时触发。【除数异常】
 # num1 = 100
 # num2 = 0
 # result = num1 / num2
 
-# 2.TypeError：当操作的数据类型不正确或不兼容时触发。
+# 2.TypeError：当操作的数据类型不正确或不兼容时触发。【类型异常】
 # result = '10' + 5
 
-# 3.AttributeError: 当对象没有指定的属性或方法时触发。
+# 3.AttributeError: 当对象没有指定的属性或方法时触发。【字段错误】
 # 演示1
 # class Person:
 #     def __init__(self, name, age):
@@ -30,18 +32,19 @@
 # nums = [10, 20, 30]
 # nums.add(40)
 
-# 4.IndexError：当索引超出范围（索引越界）时触发。
+# 4.IndexError：当索引超出范围（索引越界）时触发。 【索引错误、下标错误】
 # nums = [10, 20, 30, 40]
 # print(nums[4])
 
-# 5.NameError：当使用了不存在的变量时触发。
+# 5.NameError：当使用了不存在的变量时触发。 【名字错误】
 # print(school)
 
-# 6.KeyError：当访问字典中不存在的 key 时触发。
+# 6.KeyError：当访问字典中不存在的 key 时触发。 【字典key不存在】
 # person = {'name':'张三', 'age':18}
 # print(person['gender'])
 
-# 7.ValueError：当值不合法，但类型正确时触发。
+# 7.ValueError：当值不合法，但类型正确时触发。 【值不合法】
 # int('hello')
 
 
+# 开发中常见的异常，基本都隶属于Exception
