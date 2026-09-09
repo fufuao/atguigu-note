@@ -70,6 +70,7 @@ import sys      # Python 解释器相关操作
 # C:\Users\tianyu\Desktop\test02\.venv>cd Scripts
 # C:\Users\tianyu\Desktop\test02\.venv\Scripts>activate
 # (.venv) C:\Users\tianyu\Desktop\test02\.venv\Scripts>pip install faker
+# (.venv) C: \Users\tianyu \Desktop\test02>deactivate   # 退出虚拟环境
 #
 # 2、直接在idea终端安装，直接就安装到虚拟环境了。
 #
