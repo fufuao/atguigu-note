@@ -15,14 +15,28 @@
 # print(next(it2))
 # print(next(it2))
 
-# for item in it1:
+# for item in it1:  # iter(it1)-->得到迭代器
 #     print(item)
 #
-# for item in it2:
+# for item in it2:  # iter(it2)-->得到迭代器
 #     print(item)
 # endregion
 
 # 需求：让for循环可以遍历Person的实例对象
+# 首先要知道for循环能遍历的得是可迭代对象、
+# 怎么把p1变成可迭代对象呢？【首先能调用到__iter__方法。】
+# 那就在Person中定义一个
+# def __iter__(self):
+#     return 迭代器【类PersonIterator】
+# 迭代器类PersonIterator要遵循迭代器协议
+# 知识点6：迭代器协议
+# 1.能被 iter() 接受 obj.__iter__()
+# 2.能被 next() 一步一步取值 obj.__next__()
+# self是当前这个类创建的实例对象
+# 核心是类PersonIterator中next里面的东西
+
+
+
 # 实现方式1️⃣
 # region
 # class Person:
@@ -71,6 +85,7 @@
 # endregion
 
 # 实现方式2️⃣
+# 既是可迭代对象 也是迭代器 节省代码
 # region
 # class Person:
 #     def __init__(self, name, age, gender, address):

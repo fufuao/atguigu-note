@@ -1,7 +1,7 @@
 # 知识点1：能被 for 循环遍历的对象，被称为：可迭代对象(iterable)
 # region
-# names = ['张三', '李四', '王五']
-# citys = ('北京', '上海', '深圳')
+# names = ['张三', '李四', '王五'] #内置list的实例化对象
+# citys = ('北京', '上海', '深圳') #内置tuple的实例化对象
 # msg = 'hello'
 # age = 10
 # def test():
@@ -11,7 +11,7 @@
 #     print(item)
 # endregion
 
-# 知识点2：可迭代对象(iterable) 能调用到 __iter__ 方法。
+# 知识点2：可迭代对象(iterable) 能调用到 __ite  r__ 方法。
 # region
 # names = ['张三', '李四', '王五']
 # citys = ('北京', '上海', '深圳')
@@ -24,6 +24,8 @@
 # citys.__iter__()
 # msg.__iter__()
 
+
+# 【hasattr】 某一个对象身上是否有某一个属性
 # print(hasattr(names, '__iter__'))
 # print(hasattr(citys, '__iter__'))
 # print(hasattr(msg, '__iter__'))
@@ -88,12 +90,12 @@
 #         break
 # endregion
 
-# 知识点5：迭代器(iterator)也拥有 __iter__ 方法，并且其返回值是迭代器自身。
+# 知识点5：迭代器(iterator)也拥有 __iter__ 方法，并且其返回值是【迭代器自身】。
 # 这么设计的原因如下：让 for 循环也能遍历迭代器（即：为了让 iter(迭代器) 不出错）。
 # region
 # names = ['张三', '李四', '王五']
 
-# it = iter(names)
+# it = iter(names) # 得到迭代器
 # print(it)
 #
 # result = iter(it)
@@ -108,6 +110,8 @@
 # endregion
 
 # 知识点6：迭代器协议
-#   1.能被 iter() 接受
-#   2.能被 next() 一步一步取值
+#   1.能被 iter() 接受 obj.__iter__()
+#   2.能被 next() 一步一步取值 obj.__next__()
+
+
 

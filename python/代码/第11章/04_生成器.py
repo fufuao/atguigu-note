@@ -56,7 +56,7 @@
 #     print(b)
 #     return '尚硅谷'
 #
-# d = demo()
+# d = demo() # 【这里的d就是生成器对象】
 # 验证：生成器对象d，和迭代器一样，也拥有：__iter__  和 __next__ 方法
 # print(hasattr(d, '__iter__'))
 # print(hasattr(d, '__next__'))
@@ -202,6 +202,7 @@
 
 # nums = [10, 20, 30, 40]
 
+# 注意[]和()
 # 列表推导式
 # result1 = [n * 2 for n in nums]
 # print(result1)
