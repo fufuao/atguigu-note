@@ -15,7 +15,10 @@ def show_info():
 
 # print('我是pay模块打印的内容', __name__)
 
-# 测试代码
+#     wechat_pay()
+#     ali_pay()
+
+# 测试代码【模块文件 直接运行的这个文件 怎样写不影响其他引入的操作调用】
 # if __name__ == '__main__':
 #     wechat_pay()
 #     ali_pay()

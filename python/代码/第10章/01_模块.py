@@ -43,6 +43,7 @@
 # zf.ali_pay()
 # zf.show_info()
 
+# 引入部分
 # 3️⃣from 模块名 import 具体内容1, 具体内容2, ......
 # from order import max_order_amount, show_info
 # from pay import wechat_pay, ali_pay
@@ -53,6 +54,7 @@
 # ali_pay()
 
 
+# 引入部分别名版
 # 4️⃣from 模块名 import 具体内容1 as 别名1, 具体内容2 as 别名2, ......
 # from order import max_order_amount as max_amt, show_info as show1
 # from pay import timeout as tm, show_info as show2
@@ -61,7 +63,7 @@
 # show1()
 # show2()
 
-
+# 引入全部【官方不推荐】
 # 5️⃣from 模块名 import *
 # from order import *
 # from pay import *
@@ -78,6 +80,7 @@
 # ali_pay()
 # show_info()
 
+# 【只能控制这种引入：from 模块 import *】
 # 关于__all__：
 # ● 在 Python 模块中，可通过 __all__ 来控制【from 模块 import *】能导入哪些内容。
 # ● __all__ 的值可以是：列表、元组。

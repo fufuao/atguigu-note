@@ -43,3 +43,51 @@ import sys      # Python 解释器相关操作
 
 # 获取Python解释器的版本
 # print(sys.version)
+
+
+# 注意：
+# 虚拟环境.vevn【隔离、只可以访问全局的标准库、访问不了第三方】
+# 虚拟环境访问不了全局的第三方包，只能访问自己虚拟环境的第三方包
+
+# 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple
+# 阿里云 https://mirrors.aliyun.com/pypi/simple
+# 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple
+
+# pip install pyfiglet [PyPI] 从国外拉
+# pip install -i https://mirrors.aliyun.com/pypi/simple pyfiglet
+
+# 命令                                                  说明
+# pip install 包名                                      安装指定的包。
+# pip install -i 镜像地址 包名                           临时使用镜像地址安装指定包。
+# pip config set global.index-url 地址                  设置 pip 所使用的镜像地址。
+# pip config list                                      查看当前环境的 pip 配置。
+# pip config unset global.index-url                    让 pip 恢复使用官方默认的地址。
+# pip list                                             列出当前环境中，已安装的所有第三方包。
+# pip uninstall 包名                                    从当前环境中卸载指定的第三方包。
+
+# 1、虚拟环境装包
+# C:\Users\tianyu\Desktop\test02>cd .venv
+# C:\Users\tianyu\Desktop\test02\.venv>cd Scripts
+# C:\Users\tianyu\Desktop\test02\.venv\Scripts>activate
+# (.venv) C:\Users\tianyu\Desktop\test02\.venv\Scripts>pip install faker
+#
+# 2、直接在idea终端安装，直接就安装到虚拟环境了。
+#
+#
+# 3、点击idea右下角 点击解释器设置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
