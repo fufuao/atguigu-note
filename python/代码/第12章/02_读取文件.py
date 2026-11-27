@@ -3,7 +3,7 @@
 #   2.操作文件（读取、写入 等）
 #   3.关闭文件
 
-# 文件操作的核心 ———— open函数：它可以打开或创建文件，且支持多种操作模式，返回值是『文件对象』。
+# 文件操作的核心 ———— 【open函数】：它可以【打开】或【创建】文件，且支持多种操作模式，返回值是『文件对象』。
 # open 函数最常用的三个参数如下：
 #   1.file：要操作的文件路径
 #   2.mode：文件的打开模式
@@ -36,7 +36,7 @@
 # r2 = file.read(3)
 # r3 = file.read(4)
 # r4 = file.read()
-# print(r1, end='')
+# print(r1, end='') # 去掉默认反斜杠N
 # print(r2, end='')
 # print(r3, end='')
 # print(r4, end='')
@@ -69,6 +69,8 @@
 # r2 = file.readline()
 # r3 = file.readline()
 # r4 = file.readline()
+
+# 字符串剔除.strip() 如果不传就剔除两端空格或者\n
 # print(r1.strip())
 # print(r2.strip())
 # print(r3.strip())
@@ -121,6 +123,7 @@
 
 
 # ⭐️最佳实践：使用 with 上下文管理器，结合for循环遍历，逐行读取文件。
+# 用 with 的好处就是所有的文件内容读完后，他会自己关闭文件 file.close()
 # with open('a.txt', 'rt', encoding='utf-8') as file:
 #     for line in file:
 #         print(line, end='')
